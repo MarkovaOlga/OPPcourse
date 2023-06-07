@@ -1,25 +1,8 @@
 package hometask2;
 
-import lesson2.SwimSpeed;
-
 import java.util.ArrayList;
 import java.util.List;
 
-//private List<Animal> zoo = new ArrayList<>();
-//public Zoo addAnimal(Animal someAnimal) {
-//        zoo.add(someAnimal);
-//        return this;
-//        }
-//
-//@Override
-//public String toString() {
-//        StringBuilder builder = new StringBuilder("В зоопарке: \n");
-//        for (Animal animal: zoo) {
-//        builder.append(animal)
-//        .append('\n');
-//        }
-//        return builder.toString();
-//        }
 public class Aquarium {
     private List<ResidentOfAquarium> aquarium = new ArrayList<>();
     public Aquarium addResidentOfAquarium(ResidentOfAquarium someResident) {
