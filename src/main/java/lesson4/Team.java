@@ -1,5 +1,8 @@
 package lesson4;
 
+import lesson2.RunSpeed;
+import lesson2.animals.base.Animal;
+import lesson4.shields.Shield;
 import lesson4.warriors.Archer;
 import lesson4.warriors.Warrior;
 
@@ -24,6 +27,13 @@ public class Team <T extends Warrior> implements Iterable<T>{
         }
         return teamHealth;
     }
+    public int getTeamShield(){
+        int teamShield = 0;
+        for (T t: this){
+            teamShield+=t.getShield().protection();
+        }
+        return teamShield;
+    }
     public int maxAttackDistance () {
         int maxDistance = 0;
         for (T t: this){
@@ -45,6 +55,15 @@ public class Team <T extends Warrior> implements Iterable<T>{
         return teamAttack;
     }
 
+    public T getMinRangeOfShield(){
+        T minShield = team.get(0);
+        for (T t: this) {
+            if (minShield.getShield().protection() > t.getShield().protection()) {
+                minShield = t;
+            }
+        }
+        return minShield;
+    }
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
@@ -54,6 +73,7 @@ public class Team <T extends Warrior> implements Iterable<T>{
         builder.append(String.format("TeamAttack: %d ", getTeamAttack()));
         builder.append(String.format("TeamHealth: %d ", getTeamHealth()));
         builder.append(String.format("TeamRanged: %d ", maxAttackDistance()));
+        builder.append(String.format("TeamShield: %d ", getTeamShield()));
         return builder.toString();
     }
 }
